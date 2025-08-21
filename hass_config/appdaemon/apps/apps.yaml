@@ -1,0 +1,16 @@
+#apps.yaml
+qwen_assistant:
+  module: qwen_assistant_secure
+  class: QwenAssistantSecure
+  qwen_url: !env_var QWEN_URL
+  qwen_model: !env_var QWEN_MODEL
+  ha_url: !env_var HA_URL
+  ha_token: !env_var HA_TOKEN
+  context_entities:
+    - sensor.smarthome_node_keystudio_temperature
+    - sensor.smarthome_node_keystudio_humidity
+    - binary_sensor.smarthome_node_motion_sensor
+    - sensor.smarthome_node_led_activation_count
+    - sensor.smarthome_node_buzzer_alert_count
+    - switch.smarthome_node_dc_motor_fan
+    - switch.smarthome_node_smart_home_light

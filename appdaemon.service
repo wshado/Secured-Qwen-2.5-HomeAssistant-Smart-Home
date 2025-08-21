@@ -1,0 +1,16 @@
+[Unit]
+Description=AppDaemon 4 for Home Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=cciaz
+# Point WorkingDirectory at the project directory
+WorkingDirectory=${PWD}
+# Use the startup script that loads environment variables
+ExecStart=${PWD}/start_appdaemon.sh
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

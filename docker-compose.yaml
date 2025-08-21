@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    volumes:
+      - ./hass_config:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - .env
+    environment:
+      - HA_URL=${HA_URL}
+      - HA_TOKEN=${HA_TOKEN}
+      - QWEN_URL=${QWEN_URL}
+      - QWEN_MODEL=${QWEN_MODEL}
+      - PYTHONWARNINGS=ignore::UserWarning
